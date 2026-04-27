@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Team</title>
+<style>
+  :root {
+    --purple: #c800ff;
+    --purple-dim: rgba(200,0,255,0.2);
+    --text-dim: #b89ec0;
+    --card-bg: rgba(255,255,255,0.05);
+    --speed: 4s;
+    --members: 7 }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  /* ===== BACKGROUND ===== */
+  body {
+    background: linear-gradient(160deg, #200016, #10001f);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', sans-serif;
+    overflow: hidden;
+  }
+  .title {
+    color: #fff;
+    font-size: clamp(1.6rem, 4vw, 2.5rem);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .title span { color: var(--purple); }
+
+  .line {
+    width: 60px;
+    height: 3px;
+    background: var(--purple);
+    border-radius: 3px;
+    margin-bottom: 40px;
+  }
+
+  .carousel {
+    width: min(420px, 90vw);
+    overflow: hidden;
+    position: relative;
+  }
+  .track {
+    display: flex;
+    width: calc(100% * var(--members));
+    animation: slide calc(var(--speed) * var(--members)) steps(var(--members)) infinite;
+  }
+
+  @keyframes slide {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
+
+  .slide {
+    width: calc(100% / var(--members));
+    padding: 8px;
+  }
+
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--purple-dim);
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    transition: border-color 0.3s, box-shadow 0.3s;
+    animation: fadeCard var(--speed) infinite;
+  }
+
+  .card:hover {
+    border-color: var(--purple);
+    box-shadow: 0 0 30px var(--purple-dim);
+  }
+
+  @keyframes fadeCard {
+    0%, 10%  { opacity: 0; transform: scale(0.95); }
+    20%, 80% { opacity: 1; transform: scale(1);    }
+    90%, 100%{ opacity: 0; transform: scale(0.95); }
+  }
+  .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid var(--purple);
+    box-shadow: 0 0 20px var(--purple-dim);
+    margin: 0 auto 20px;
+    background: linear-gradient(135deg, #3d0060, #1a0025);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--purple);
+    overflow: hidden;
+  }
+  .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .name {
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+
+  .role {
+    color: var(--purple);
+    font-size: 0.78rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .divider {
+    width: 40px;
+    height: 1px;
+    background: var(--purple-dim);
+    margin: 0 auto 14px;
+  }
+
+  .bio {
+    color: var(--text-dim);
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+
+  .dots {
+    display: flex;
+    gap: 8px;
+    margin-top: 25px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--purple-dim);
+    border: 1px solid var(--purple);
+    animation: dotPulse calc(var(--speed) * var(--members)) infinite;
+  }
+
+  .dot:nth-child(1) { animation-delay: calc(var(--speed) * 0); }
+  .dot:nth-child(2) { animation-delay: calc(var(--speed) * 1); }
+  .dot:nth-child(3) { animation-delay: calc(var(--speed) * 2); }
+  .dot:nth-child(4) { animation-delay: calc(var(--speed) * 3); }
+  .dot:nth-child(5) { animation-delay: calc(var(--speed) * 4); }
+  .dot:nth-child(6) { animation-delay: calc(var(--speed) * 5); }
+  .dot:nth-child(7) { animation-delay: calc(var(--speed) * 6); }
+
+  @keyframes dotPulse {
+    0%, 10%              { background: var(--purple); width: 22px; border-radius: 4px; }
+    14.2857%, 100%   { background: var(--purple-dim); width: 8px; border-radius: 50%; }
+  }
+
+  @media (max-width: 480px) {
+    .card { padding: 30px 20px; }
+    .avatar { width: 80px; height: 80px; font-size: 1.5rem; }
+  }
+
+</style>
+</head>
+<body>
+
+  <!-- ===== TITLE ===== -->
+  <h2 class="title">Our <span>Team</span></h2>
+  <div class="line"></div>
+
+  <!-- ===== CAROUSEL ===== -->
+  <div class="carousel">
+    <div class="track">
+
+      <!-- Member 1 -->
+      <div class="slide">
+        <div class="card">
+          <div class="avatar">
+            <img src="C:\Users\Joe Store\Desktop\our team page\images\Screenshot (59).png" alt="Mahmoud Hany">
+          </div>          <!-- ← Change initials or add <img> -->
+          <p class="name">Mahmoud Hany</p>       <!-- ← Change name -->
+          <p class="role">⚡ 215</p>     <!-- ← Change role -->
+          <div class="divider"></div>
+          <p class="bio">Red team expert, 8+ years. OSCP & CEH certified.</p> <!-- ← Change bio -->
+        </div>
+      </div>
+
+      <!-- Member 2 -->
+      <div class="slide">
+        <div class="card">
+          <div class="avatar">
+            <img src="C:\Users\Joe Store\Desktop\our team page\images\Screenshot (60).png" alt="Sara Rashed">
+          </div>
+          <p class="name">Sara Rashed</p>
+          <p class="role">🔐 Malware Analyst</p>
+          <div class="divider"></div>
+          <p class="bio">Reverse engineering & behavioral threat intelligence.</p>
+        </div>
+      </div>
+
+      <!-- Member 3 -->
+      <div class="slide">
+        <div class="card">
+          <div class="avatar">
+            <img src="C:\Users\Joe Store\Desktop\our team page\images\Screenshot (61).png" alt="Mohamed Zaki">
+          </div>
+          <p class="name">Mohamed Zaki</p>
+          <p class="role">🛡️ SOC Lead</p>
+          <div class="divider"></div>
+          <p class="bio">12 years in security ops, SIEM & incident response.</p>
+        </div>
+      </div>
+
+      <!-- Member 4 -->
+      <div class="slide">
+        <div class="card">
+          <div class="avatar">
+            <img src="C:\Users\Joe Store\Desktop\our team page\images\Screenshot (62).png" alt="Laila Hassan">
+          </div>
+          <p class="name">Laila Hassan</p>
+          <p class="role">🕵️ OSINT Specialist</p>
+          <div class="divider"></div>
+          <p class="bio">Digital footprint analyst & dark web monitoring.</p>
+        </div>
+      </div>
+
+      <!-- Member 5 -->
+      <div class="slide">
+        <div class="card">
+          <div class="avatar">
+            <img src="C:\Users\Joe Store\Desktop\our team page\images\Screenshot (63).png" alt="Khaled Mansour">
+          </div>
+          <p class="name">Khaled Mansour</p>
+          <p class="role">🌐 Network Security</p>
+          <div class="divider"></div>
+          <p class="bio">Firewall architect & zero-trust network specialist.</p>
+        </div>
+      </div>
+
+      <!-- Member 6 -->
+      <div class="slide">
+        <div class="card">
+          <div class="avatar">
+            <img src="C:\Users\Joe Store\Desktop\our team page\images\Screenshot (64).png" alt="Nour Adel">
+          </div>
+          <p class="name">Nour Adel</p>
+          <p class="role">💻 CTF Champion</p>
+          <div class="divider"></div>
+          <p class="bio">Top-ranked CTF player & exploit development researcher.</p>
+        </div>
+      </div>
+
+      <!-- Member 7 -->
+      <div class="slide">
+        <div class="card">
+          <div class="avatar">
+            <img src="C:\Users\Joe Store\Desktop\our team page\images\Screenshot (65).png" alt="Youssef Tarek">
+          </div>
+          <p class="name">Youssef Tarek</p>
+          <p class="role">☁️ Cloud Security</p>
+          <div class="divider"></div>
+          <p class="bio">AWS & Azure security architect, IAM & compliance expert.</p>
+        </div>
+      </div>
+
+    </div><!-- end track -->
+  </div><!-- end carousel -->
+
+  <!-- ===== DOTS ===== -->
+  <div class="dots">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+
+</body>
+</html>
